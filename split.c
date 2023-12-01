@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 21:56:44 by smarty            #+#    #+#             */
-/*   Updated: 2023/11/29 17:46:14 by smarty           ###   ########.fr       */
+/*   Updated: 2023/11/30 14:54:31 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ static int	count_word(const char *s, char c)
 	return (nb);
 }
 
-static char	*strmalloc(char **str, int y, int word)
-{
-	str[word] = (char *)malloc (sizeof(char) * y + 1);
-	return (str[word]);
-}
-
 static char	**cpyword(char **str, const char *s, char c)
 {
 	int	i;
@@ -51,7 +45,7 @@ static char	**cpyword(char **str, const char *s, char c)
 	{
 		while (s[i + y] != c && s[i + y])
 			y++;
-		str[word] = strmalloc(str, y, word);
+		str[word] = (char *)malloc (sizeof(char) * y + 1);
 		y = 0;
 		while (s[i] != c && s[i])
 			str[word][y++] = s[i++];
@@ -88,4 +82,17 @@ void	free_path(char **path)
 		i++;
 	}
 	free(path);
+}
+
+void	free_cmd(char **cmd)
+{
+	int	i;
+
+	i = 0;
+	while (cmd[i])
+	{
+		free(cmd[i]);
+		i++;
+	}
+	free(cmd);
 }

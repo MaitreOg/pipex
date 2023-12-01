@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:43:17 by smarty            #+#    #+#             */
-/*   Updated: 2023/11/29 17:46:06 by smarty           ###   ########.fr       */
+/*   Updated: 2023/11/30 14:55:02 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,18 @@ char	*ft_strjoin(char *s1, char *s2)
 		str[j++] = s2[i++];
 	str[j] = 0;
 	return (str);
+}
+
+char	**find_path(char **env)
+{
+	char	*env_path;
+	char	**path;
+	int		i;
+
+	i = 0;
+	while (ft_strstr(env[i], "PATH=") == 0)
+		i++;
+	env_path = ft_strstr(env[i], "PATH=");
+	path = ft_split(env_path, ':');
+	return (path);
 }

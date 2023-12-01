@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:37:15 by smarty            #+#    #+#             */
-/*   Updated: 2023/11/29 17:47:09 by smarty           ###   ########.fr       */
+/*   Updated: 2023/11/30 14:55:25 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	ft_putendl_fd(char *s, int fd);
 int		ft_strlen(char *str);
 void	free_cmd(char **cmd);
 void	free_path(char **path);
+char	**find_path(char **env);
 #endif
