@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:35:51 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/01 18:54:01 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/01 18:56:29 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	create_childpid(char **path, char **av, char **env, int y)
 		dup2(fd[1], STDOUT_FILENO);
 		close(fd[0]);
 		close(fd[1]);
-		ex_cmd2(path, av, env);
+		ex_cmd2(path, av, env, y);
 		exit(0);
 	}
 	else
@@ -121,7 +121,7 @@ int	main(int ac, char **av, char **env)
 	close(fdo);
 	path = find_path(env);
 	if (ac == 5)
-		create_childpid(path, av, env, y);
+		create_childpid(path, av, env, i);
 	else
 	{
 		while (i < (ac - 1))
