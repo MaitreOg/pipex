@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-static int	count_word(const char *s, char c)
+int	count_word(char *s, char c)
 {
 	int	i;
 	int	nb;
@@ -30,7 +30,7 @@ static int	count_word(const char *s, char c)
 	return (nb);
 }
 
-static char	**cpyword(char **str, const char *s, char c)
+char	**cpyword(char **str, char *s, char c)
 {
 	int	i;
 	int	y;

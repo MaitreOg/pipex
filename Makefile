@@ -2,9 +2,10 @@ NAME	= pipex
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
-SRCS = pipex_utils.c pipex.c split.c
+SRCS = pipex_utils.c pipex.c split.c pipex_bonus.c main.c \
+	   get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJECTS = $(SRCS:.c=.o)
 
