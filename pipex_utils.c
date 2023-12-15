@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:43:17 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/14 19:54:40 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/15 23:57:01 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_putendl_fd(char *s, int fd)
 	return (i);
 }*/
 
-/*char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -91,7 +91,7 @@ void	ft_putendl_fd(char *s, int fd)
 		str[j++] = s2[i++];
 	str[j] = 0;
 	return (str);
-}*/
+}
 
 char	**find_path(char **env)
 {

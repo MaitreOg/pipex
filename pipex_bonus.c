@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 21:45:54 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/15 19:18:53 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/15 23:54:50 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void create_file_doc(char **av, int *fd)
 	char	*line;
 	char	*limiter;
 
-	limiter = av[2];
+	limiter = ft_strjoin(av[2], "\n");
 	write(STDIN_FILENO, "pipex: here_doc> ", 17);
 	line = get_next_line(STDIN_FILENO);
 	while (line)

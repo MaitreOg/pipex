@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 13:54:44 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/15 23:56:38 by smarty           ###   ########.fr       */
+/*   Created: 2023/10/26 00:20:12 by smarty            #+#    #+#             */
+/*   Updated: 2023/10/26 00:43:09 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen(char *str)
 {
@@ -32,7 +32,7 @@ int	ft_strlen_newl(char *stash)
 	return (ft_strlen(stash) - i);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;

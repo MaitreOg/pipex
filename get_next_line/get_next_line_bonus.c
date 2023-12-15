@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 13:28:58 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/15 23:56:35 by smarty           ###   ########.fr       */
+/*   Created: 2023/10/26 00:18:35 by smarty            #+#    #+#             */
+/*   Updated: 2023/10/26 00:43:18 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_function(int fd, char *stash)
 {
@@ -34,7 +34,7 @@ char	*read_function(int fd, char *stash)
 		}
 		buffer[value_read] = 0;
 		newl = check_newl(buffer, value_read);
-		stash = ft_strjoin_gnl(stash, buffer);
+		stash = ft_strjoin(stash, buffer);
 	}
 	free(buffer);
 	return (stash);
@@ -93,20 +93,20 @@ char	*next_line(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[4096];
 	char		*str;
 
-	if (!stash)
+	if (!stash[fd])
 	{
-		stash = malloc(1);
-		*stash = '\0';
+		stash[fd] = malloc(1);
+		*stash[fd] = '\0';
 	}
 	if (fd < 0 && BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = read_function(fd, stash);
-	if (!stash)
+	stash[fd] = read_function(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	str = find_str(stash);
-	stash = next_line(stash);
+	str = find_str(stash[fd]);
+	stash[fd] = next_line(stash[fd]);
 	return (str);
 }
