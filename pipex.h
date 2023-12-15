@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:37:15 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/14 13:39:24 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/15 19:19:15 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <sys/types.h>
 # include <fcntl.h>
 # include "get_next_line/get_next_line.h"
+//# include "libft/libft.h"
+
 
 
 char	*ft_strstr(char *str, char *to_find);
@@ -34,7 +36,7 @@ void    pipe_process(char **av, char **env, int i);
 void	ex_cmd(char **av, char **env, int y);
 void    create_childpid(char **av, char **env, int y);
 int     main(int ac, char **av, char **env);
-void    here_doc(char **av);
+int     here_doc(char **av);
 int	    ft_strncmp(char *s1, char *s2, int len);
 int     ft_strlen(char *str);
 #endif
