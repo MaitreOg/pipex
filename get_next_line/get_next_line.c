@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:28:58 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/15 23:56:35 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/16 00:22:17 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,10 @@ char	*get_next_line(int fd)
 		*stash = '\0';
 	}
 	if (fd < 0 && BUFFER_SIZE <= 0)
+	{
+		free(stash);
 		return (NULL);
+	}
 	stash = read_function(fd, stash);
 	if (!stash)
 		return (NULL);

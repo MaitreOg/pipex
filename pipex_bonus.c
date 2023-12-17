@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 21:45:54 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/15 23:54:50 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/16 00:31:37 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ void	ex_cmd(char **av, char **env, int y)
 		i++;
 	}
 }
-void    pipe_process(char **av, char **env, int i)
+
+void	pipe_process(char **av, char **env, int i)
 {
-	pid_t   childpid;
+	pid_t	childpid;
 	int		fd[2];
-	
+
 	if (pipe(fd) == -1)
 		exit(EXIT_FAILURE);
 	childpid = fork();
@@ -65,28 +66,8 @@ void    pipe_process(char **av, char **env, int i)
 		waitpid(childpid, NULL, 0);
 	}
 }
-/*void create_file_doc(char **av, int fd[2])
-{
-	char	*line = NULL;
-	char	*limiter;
-	int		fdtmp;
 
-	fdtmp = open("temp.txt",  O_WRONLY | O_TRUNC | O_CREAT, 0666);
-	limiter = ft_strjoin(av[2], "\n");
-	close(fd[0]);
-	while (1)
-	{
-		line = ft_strjoin(get_next_line(0), "\n");
-		if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 1)
-		{
-			free(line);
-			exit(0);
-		}
-		write(fdtmp, line, ft_strlen(line));
-		free(line);
-	}
-}*/
-void create_file_doc(char **av, int *fd)
+void	create_file_doc(char **av, int *fd)
 {
 	char	*line;
 	char	*limiter;
@@ -98,6 +79,8 @@ void create_file_doc(char **av, int *fd)
 	{
 		if (ft_strncmp(limiter, line, ft_strlen(limiter)))
 		{
+			get_next_line(-1);
+			free(limiter);
 			free(line);
 			close(*fd);
 			exit(0);
@@ -107,14 +90,12 @@ void create_file_doc(char **av, int *fd)
 		write(STDIN_FILENO, "pipex: here_doc> ", 17);
 		line = get_next_line(STDIN_FILENO);
 	}
-	
 }
 
-int    here_doc(char **av)
+int	here_doc(char **av)
 {
-	pid_t   childpid;
+	pid_t	childpid;
 	int		fd[2];
-	
 
 	if (pipe(fd) == -1)
 		exit(EXIT_FAILURE);
@@ -138,26 +119,3 @@ int    here_doc(char **av)
 	}
 	return (STDIN_FILENO);
 }
-
-/*int	main(int ac, char **av, char **env)
-{
-	int		i;
-	int		fdi;
-	int		fdo;
-	
-	fdi = open(av[1], 0, 0666);
-	fdo = open(av[ac - 1], O_WRONLY | O_TRUNC | O_CREAT, 0666);
-	if (fdo == -1 || fdi == -1)
-		perror("fd");
-	
-	i = 2;
-	dup2(fdi, STDIN_FILENO);
-	while (i < ac -2)
-	{
-		pipe_process(av, env, i);
-		i++;
-	}
-	dup2(fdo, STDOUT_FILENO);
-	ex_cmd(av, env, i);
-	return (0);
-}*/

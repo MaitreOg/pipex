@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:35:51 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/13 03:50:49 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/16 00:32:11 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ex_cmd2(char **av, char **env, int y)
 {
 	int		i;
 	char	**cmd2;
-	char	**path; 
+	char	**path;
 
 	cmd2 = ft_split(av[y + 1], ' ');
 	path = find_path(env);
@@ -68,11 +68,11 @@ void	ex_cmd2(char **av, char **env, int y)
 	}
 }
 
-void    create_childpid(char **av, char **env, int y)
+void	create_childpid(char **av, char **env, int y)
 {
 	pid_t	childpid;
 	int		fd[2];
-	
+
 	if (pipe(fd) == -1)
 		exit(EXIT_FAILURE);
 	childpid = fork();

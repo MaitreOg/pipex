@@ -6,7 +6,7 @@
 /*   By: smarty <smarty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:43:17 by smarty            #+#    #+#             */
-/*   Updated: 2023/12/15 23:57:01 by smarty           ###   ########.fr       */
+/*   Updated: 2023/12/16 00:26:35 by smarty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ int	ft_strncmp(char *s1, char *s2, int len)
 	while (i <= len)
 	{
 		if (s1[i] != s2[i])
-		{
-			if (s2 == 0)
-				printf("s2 est NULL\n");
-			printf("|%s| i->%d\n", s2,  i);
-			printf("%c : %c, i->%d\n", s1[i], s2[i], i);
 			return (0);
-		}
 		i++;
 	}
 	return (1);
